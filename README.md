@@ -1,5 +1,5 @@
 # fasta_parser
-Small package used to parse a file in the Fasta format
+Basic package used to parse a file in the Fasta format
 
 It provides basic functionality such as:
 

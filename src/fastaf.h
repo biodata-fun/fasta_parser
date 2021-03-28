@@ -15,5 +15,7 @@ class fastaf{
         void make_index(string indexf);
         map<string, int> read_index(string indexf);
         void get_seq(map<string, int> m, string id);
+        int get_number_seqs();
+        void get_seq_ids();
 };
 #endif

@@ -130,3 +130,54 @@ void fastaf::get_seq(map<string, int> ix, string id)
     else
         cout<< "Error opening the file:"<< path << endl;
 }
+
+int fastaf::get_number_seqs()
+{
+    /*
+    Function to get the number of seqs in a Fasta file
+
+    Returns
+    -------
+    int : Number of seqs
+    */
+    fstream fin;
+    fin.open(path, ios::in);
+    string line; 
+
+    int seq_count=0;
+    if (fin.is_open())
+    {
+        while ( getline (fin, line) )
+        {
+            if (line[0]=='>')
+                seq_count++;
+        }
+        fin.close();
+    } else
+        cout<< "Error opening the file:"<< path << endl;
+    
+    return seq_count;
+}
+
+void fastaf::get_seq_ids()
+{
+    /*
+    Function to get the ids in a Fasta file
+    */
+    fstream fin;
+    fin.open(path, ios::in);
+    string line; 
+
+    if (fin.is_open())
+    {
+        while ( getline (fin, line) )
+        {
+            if (line[0]=='>')
+                cout<< line <<endl;
+        }
+        fin.close();
+    } else
+        cout<< "Error opening the file:"<< path << endl;   
+}
+
+

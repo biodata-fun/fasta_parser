@@ -5,7 +5,21 @@ It provides basic functionality such as:
 
 * Quick sequence retrieval
 
-In the future, I plam to add new features to this package
+In the future, I plan to add new features to this package
 
 * Installation
 
+'cd' to the directory containing the package's source and type::
+
+    make
+
+You will see 2 executable files named `getseq` and `makeix` in the `./bin` directory
+
+* Usage
+
+Before using `getseq` with a sequence file you need to index fasta file by doing:
+    makeix <input.fa>
+
+Then, you can use `getseq` to fetch a particular sequence
+
+getset <input.fa> <seqid>

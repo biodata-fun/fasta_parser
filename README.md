@@ -23,4 +23,4 @@ Before using `getseq` with a Fasta file you need to index it by doing:
 
 Then, you can use `getseq` to fetch a particular sequence:
 
-    getset <input.fa> <seqid>
+    getseq <input.fa> <seqid>

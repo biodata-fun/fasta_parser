@@ -1,5 +1,5 @@
 # fasta_parser
-Small package used to parse a file in the Fasta format
+Basic package used to parse a file in the Fasta format
 
 It provides basic functionality such as:
 
@@ -9,7 +9,7 @@ In the future, I plan to add new features to this package
 
 * Installation
 
-'cd' to the directory containing the package's source and type::
+'cd' to the directory containing the package's source and type:
 
     make
 
@@ -17,9 +17,10 @@ You will see 2 executable files named `getseq` and `makeix` in the `./bin` direc
 
 * Usage
 
-Before using `getseq` with a sequence file you need to index fasta file by doing:
+Before using `getseq` with a Fasta file you need to index it by doing:
+
     makeix <input.fa>
 
-Then, you can use `getseq` to fetch a particular sequence
+Then, you can use `getseq` to fetch a particular sequence:
 
-getset <input.fa> <seqid>
+    getseq <input.fa> <seqid>

@@ -19,7 +19,7 @@ You will see the differenct executable files  in the `./bin` directory
 
 # Usage
 
-## `getseq`:
+## `getseq`
 
 Before using `getseq` with a Fasta file you need to index it by doing:
 

@@ -3,6 +3,8 @@
 #include <fstream>
 #include <map>
 #include <sstream>
+#include <algorithm>
+
 
 /*
 * Constructor
@@ -86,8 +88,14 @@ void fastaf::make_index(string indexf)
             if( line[0]=='>')
             {
                 line.erase(0, 1);
-                int position=fio.tellg();
-                ix_f<<line<<" "<<position<<endl;
+                // get the identifier only and ignore optional description
+                stringstream s(line);
+                string id;
+                s >> id;
+                long long int position;
+                position=fio.tellg();
+                position= position-(line.length()+2);
+                ix_f<<id<<" "<<position<<endl;
                 continue;
             }
         }
@@ -106,21 +114,30 @@ void fastaf::get_seq(map<string, int> ix, string id)
     ix : map<string, int> with index
     id : id of sequence to fetch
     */
-    int pos = ix[id];
-
+    int pos;
+    if(ix.find(id)==ix.end()) {
+        cout<< "I could not find an entry with id " << id << " in the index"<<endl;
+        exit(EXIT_FAILURE);
+    } else {
+        pos=ix[id];
+    }
+    
     fstream fin;
     fin.open(path, ios::in);
 
-    cout << ">" << id << endl;
     if (fin.is_open())
     {   
-        // move the pointer to 6th position from begginning
+        // move the pointer to the right position from begginning
         fin.seekg(pos, ios::beg);
+        bool is_seen=false;
         while (fin) {
             string line;
             getline(fin, line);
-            if (line[0]=='>')
+            if (line[0]=='>' && is_seen==false)
             {
+                cout << line << endl;
+                is_seen=true;
+            } else if (line[0]=='>' && is_seen==true) {
                 break;
             } else {
                 cout << line << endl;

@@ -28,4 +28,4 @@ $(SRC)fastaf.o: $(SRC)fastaf.cpp
 	$(CC) $(CFLAGS) -c $(SRC)fastaf.cpp -o $(SRC)fastaf.o
 clean:
 	rm -f core $(SRC)*.o
-	rm -f $(BIN)*
+	rm -f $(BIN)getids $(BIN)getseq $(BIN)getseqno $(BIN)makeix
